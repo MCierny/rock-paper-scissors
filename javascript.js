@@ -32,37 +32,46 @@ else print "Wrong input, you probably made a spelling mistake"
 */
 
 
+let playerSelection = "";  //prompt("What is your choice? (Rock, Paper or Scissors)")?.toLowerCase();
+
+
 function gameRound() {
-    const computerSelection = getComputerChoice();
-    const playerSelection = prompt("What is your choice? (Rock, Paper or Scissors)")?.toLowerCase();
-    if (playerSelection === "rock" && computerSelection === "Rock") {
-        return "Its a TIE! Rock vs Rock";
-    }   else if (playerSelection === "rock" && computerSelection === "Scissors") {
+    let computerSelection = getComputerChoice();
+    if (playerSelection === computerSelection) {
+        document.getElementById('score-message').textContent = `Its a TIE! ${playerSelection} vs ${computerSelection} !`;
+        console.log(`Its a TIE! ${playerSelection} vs ${computerSelection} !`);
+    }   else if (playerSelection === "Rock" && computerSelection === "Scissors") {
             playerScore = ++playerScore;
-            return "You WIN! Rock beats Scissors.";
-    }   else if (playerSelection === "rock" && computerSelection === "Paper") {
+            document.getElementById('score-message').textContent = `You WIN! ${playerSelection} beats ${computerSelection} !`;
+            console.log(`You WIN! ${playerSelection} beats ${computerSelection} !`);
+    }   else if (playerSelection === "Rock" && computerSelection === "Paper") {
             computerScore = ++computerScore;
-            return "You LOOSE! Paper beats Rock.";
-    }   else if (playerSelection === "scissors" && computerSelection === "Rock") {
+            document.getElementById('score-message').textContent = `You LOOSE! ${computerSelection} beats ${playerSelection} !`;
+            console.log(`You LOOSE! ${computerSelection} beats ${playerSelection} !`);
+    }   else if (playerSelection === "Scissors" && computerSelection === "Rock") {
             computerScore = ++computerScore;  
-            return "You LOOSE! Rock beats Scissors.";
-    }   else if (playerSelection === "scissors" && computerSelection === "Scissors") {
-            return "Its a TIE! Scissors vs Scissors";
-    }   else if (playerSelection === "scissors" && computerSelection === "Paper") {
+            document.getElementById('score-message').textContent = `You LOOSE! ${computerSelection} beats ${playerSelection} !`;
+            console.log(`You LOOSE! ${computerSelection} beats ${playerSelection} !`);
+    }   else if (playerSelection === "Scissors" && computerSelection === "Paper") {
             playerScore = ++playerScore;  
-            return "You WIN! Scissors beat Paper.";
-    }   else if (playerSelection === "paper" && computerSelection === "Rock") {
+            document.getElementById('score-message').textContent = `You WIN! ${playerSelection} beats ${computerSelection} !`;
+            console.log(`You WIN! ${playerSelection} beats ${computerSelection} !`);
+    }   else if (playerSelection === "Paper" && computerSelection === "Rock") {
             playerScore = ++playerScore;   
-            return "You WIN! Paper beats Rock.";
-    }   else if (playerSelection === "paper" && computerSelection === "Scissors") {
+            document.getElementById('score-message').textContent = `You WIN! ${playerSelection} beats ${computerSelection} !`;
+            console.log(`You WIN! ${playerSelection} beats ${computerSelection} !`);
+    }   else if (playerSelection === "Paper" && computerSelection === "Scissors") {
             computerScore = ++computerScore; 
-            return "You LOOSE! Scissors beat Paper";
-    }   else if (playerSelection === "paper" && computerSelection === "Paper") {
-            return "Its a TIE Paper vs Paper.";
-    }   else {
-            return "Wrong input, you probably made a spelling mistake!";
-    }
+            document.getElementById('score-message').textContent = `You LOOSE! ${computerSelection} beats ${playerSelection} !`;
+            console.log(`You LOOSE! ${computerSelection} beats ${playerSelection} !`);
+    }  
+    document.getElementById('player-score').textContent = `You: ${playerScore}`;
+    document.getElementById('computer-score').textContent = `Computer: ${computerScore}`; 
+    document.getElementById('player-choice').textContent = `Your choice: ${playerSelection}`;
+    document.getElementById('computer-choice').textContent = `Computer choice: ${computerSelection}`;
 }
+
+
 
 /* Crate a function that will play 5 rounds and keps score, and reports winner oor loser at the end */
 
@@ -79,24 +88,33 @@ if computer score = 3 first = Computer WINS
 let playerScore = 0;
 let computerScore = 0;
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        console.log(gameRound());
-        console.log("Your score: ", playerScore);
-        console.log("Opponent score: ", computerScore);
-    }  
-    if (playerScore > computerScore) {
-        alert("You WON!");
-        console.log("You WON the GAME!");
-    } else if (playerScore < computerScore) {
-        alert("You LOST!");
-        console.log("You LOST the GAME!");
-    } else if (playerScore === computerScore) {
-        alert("Its a TIE!")
-        console.log("Its a TIE!");
-    }
-}
 
-game();
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//         console.log(gameRound());
+//         console.log("Your score: ", playerScore);
+//         console.log("Opponent score: ", computerScore);
+//     }  
+//     if (playerScore > computerScore) {
+//         alert("You WON!");
+//         console.log("You WON the GAME!");
+//     } else if (playerScore < computerScore) {
+//         alert("You LOST!");
+//         console.log("You LOST the GAME!");
+//     } else if (playerScore === computerScore) {
+//         alert("Its a TIE!")
+//         console.log("Its a TIE!");
+//     }
+// }
+
+// game();
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        playerSelection = button.textContent;
+        gameRound(); 
+    }) 
+});
 
 
