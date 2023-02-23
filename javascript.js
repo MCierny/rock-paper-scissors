@@ -15,37 +15,30 @@ function gameRound(playerSelection) {
     if (playerSelection === computerSelection) {
         messageUi.textContent = 'Its a TIE!';
         scoreMessageUi.textContent = `${playerSelection} ties with ${computerSelection} !`;
-        console.log(`Its a TIE! ${playerSelection} ties with ${computerSelection} !`);
     }   else if (playerSelection === "Rock" && computerSelection === "Scissors") {
             playerScore = ++playerScore;
             messageUi.textContent = 'You WIN!';
             scoreMessageUi.textContent = `${playerSelection} beats ${computerSelection} !`;
-            console.log(`You WIN! ${playerSelection} beats ${computerSelection} !`);
     }   else if (playerSelection === "Rock" && computerSelection === "Paper") {
             computerScore = ++computerScore;
             messageUi.textContent = 'You LOOSE!';
             scoreMessageUi.textContent = `${computerSelection} beats ${playerSelection} !`;
-            console.log(`You LOOSE! ${computerSelection} beats ${playerSelection} !`);
     }   else if (playerSelection === "Scissors" && computerSelection === "Rock") {
             computerScore = ++computerScore;  
             messageUi.textContent = 'You LOOSE!';
             scoreMessageUi.textContent = `${computerSelection} beats ${playerSelection} !`;
-            console.log(`You LOOSE! ${computerSelection} beats ${playerSelection} !`);
     }   else if (playerSelection === "Scissors" && computerSelection === "Paper") {
             playerScore = ++playerScore;
             messageUi.textContent = 'You WIN!';
             scoreMessageUi.textContent = `${playerSelection} beats ${computerSelection} !`;
-            console.log(`You WIN! ${playerSelection} beats ${computerSelection} !`);
     }   else if (playerSelection === "Paper" && computerSelection === "Rock") {
             playerScore = ++playerScore;
             messageUi.textContent = 'You WIN!'; 
             scoreMessageUi.textContent = `${playerSelection} beats ${computerSelection} !`;
-            console.log(`You WIN! ${playerSelection} beats ${computerSelection} !`);
     }   else if (playerSelection === "Paper" && computerSelection === "Scissors") {
             computerScore = ++computerScore;
             messageUi.textContent = 'You LOOSE!'; 
             scoreMessageUi.textContent = `${computerSelection} beats ${playerSelection} !`;
-            console.log(`You LOOSE! ${computerSelection} beats ${playerSelection} !`);
     }  
     playerScoreUi.textContent = `You: ${playerScore}`;
     computerScoreUi.textContent = `Computer: ${computerScore}`; 
@@ -59,37 +52,35 @@ function game() {
         result = confirm("You WON!");
             if (result) location.reload();
             else location.reload();
-        console.log("You WON the GAME!");
     } else if (computerScore === 5) {
         result = confirm("You LOST!");
             if (result) location.reload();
             else location.reload();
-        console.log("You LOST the GAME!");
     }
 }
 
 function updateChoices(playerSelection, computerSelection) {
     switch (playerSelection) {
       case 'Rock':
-        playerChoiceUi.innerHTML = '<img src="imgs/rock.png" alt="rock hand gesture" class="button"></img>';
+        playerChoiceUi.innerHTML = '<img src="imgs/rock.png" alt="rock hand gesture" class="show-choice"></img>';
         break
       case 'Paper':
-        playerChoiceUi.innerHTML = '<img src="imgs/paper.png" alt="rock hand gesture" class="button"></img>';
+        playerChoiceUi.innerHTML = '<img src="imgs/paper.png" alt="rock hand gesture" class="show-choice"></img>';
         break
       case 'Scissors':
-        playerChoiceUi.innerHTML = '<img src="imgs/scissors.png" alt="rock hand gesture" class="button"></img>';
+        playerChoiceUi.innerHTML = '<img src="imgs/scissors.png" alt="rock hand gesture" class="show-choice"></img>';
         break
     }
   
     switch (computerSelection) {
       case 'Rock':
-        computerChoiceUi.innerHTML = '<img src="imgs/rock.png" alt="rock hand gesture" class="button"></img>';
+        computerChoiceUi.innerHTML = '<img src="imgs/rock.png" alt="rock hand gesture" class="show-choice"></img>';
         break
       case 'Paper':
-        computerChoiceUi.innerHTML = '<img src="imgs/paper.png" alt="rock hand gesture" class="button"></img>';
+        computerChoiceUi.innerHTML = '<img src="imgs/paper.png" alt="rock hand gesture" class="show-choice"></img>';
         break
       case 'Scissors':
-        computerChoiceUi.innerHTML = '<img src="imgs/scissors.png" alt="rock hand gesture" class="button"></img>';
+        computerChoiceUi.innerHTML = '<img src="imgs/scissors.png" alt="rock hand gesture" class="show-choice"></img>';
         break
     }
   }

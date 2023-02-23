@@ -17,7 +17,7 @@
     src: url('fonts/prstartk.ttf') format('truetype');
 }
 
-/* MAIN */
+/* GENERAL SETTINGS */
 html, body {
     height: 100%;
 }
@@ -50,7 +50,7 @@ button {
     background-color: #555956;
 }
 
-/* BODY CONTENT */
+/* MAIN CONTENT */
 #header {
     font-family: Pixel, "PT Sans", Calibri, Tahoma, sans-serif;
     margin: 0;
@@ -101,6 +101,7 @@ button {
     margin-top: 50px;
 }
 
+/* BUTTONS */
 #buttons-container {
     margin: 0;
     padding: 0;
@@ -113,6 +114,27 @@ button {
 }
 
 .button {
+    margin: 0;
+    padding: 0;
+    max-width: 110px;
+    max-height: 110px;
+    background-color: #1f2937;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0px 5px 10px 0px #fac650;  
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 1px 2px 0px #fac650,
+                1px 2px 4px 0px #fac650,
+                2px 4px 8px 0px #fac650,
+                2px 4px 16px 0px #fac650;
+    /* transform: scale(1.2); */
+}
+
+.show-choice {
     margin: 0;
     padding: 0;
     max-width: 110px;
