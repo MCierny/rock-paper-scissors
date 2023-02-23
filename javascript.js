@@ -42,7 +42,8 @@ function gameRound(playerSelection) {
     }  
     playerScoreUi.textContent = `You: ${playerScore}`;
     computerScoreUi.textContent = `Computer: ${computerScore}`; 
-    updateChoices(playerSelection, computerSelection);
+    playerChoiceUi.innerHTML = updateChoices(playerSelection);
+    computerChoiceUi.innerHTML = updateChoices(computerSelection);
     game();
 }
 
@@ -57,29 +58,14 @@ function game() {
     }
 }
 
-function updateChoices(playerSelection, computerSelection) {
-    switch (playerSelection) {
+function updateChoices(selection) {
+    switch (selection) {
       case 'Rock':
-        playerChoiceUi.innerHTML = '<img src="imgs/rock.png" alt="rock hand gesture" class="show-choice"></img>';
-        break
+        return '<img src="imgs/rock.png" alt="rock hand gesture" class="show-choice"></img>';
       case 'Paper':
-        playerChoiceUi.innerHTML = '<img src="imgs/paper.png" alt="rock hand gesture" class="show-choice"></img>';
-        break
+        return '<img src="imgs/paper.png" alt="rock hand gesture" class="show-choice"></img>';
       case 'Scissors':
-        playerChoiceUi.innerHTML = '<img src="imgs/scissors.png" alt="rock hand gesture" class="show-choice"></img>';
-        break
-    }
-  
-    switch (computerSelection) {
-      case 'Rock':
-        computerChoiceUi.innerHTML = '<img src="imgs/rock.png" alt="rock hand gesture" class="show-choice"></img>';
-        break
-      case 'Paper':
-        computerChoiceUi.innerHTML = '<img src="imgs/paper.png" alt="rock hand gesture" class="show-choice"></img>';
-        break
-      case 'Scissors':
-        computerChoiceUi.innerHTML = '<img src="imgs/scissors.png" alt="rock hand gesture" class="show-choice"></img>';
-        break
+        return '<img src="imgs/scissors.png" alt="rock hand gesture" class="show-choice"></img>';
     }
   }
 

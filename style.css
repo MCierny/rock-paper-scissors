@@ -93,7 +93,7 @@ button {
     justify-content: center;
     align-items: center;
     gap: 100px;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .choices {
@@ -113,6 +113,7 @@ button {
 /* BUTTONS */
 #buttons-container {
     margin: 0;
+    margin-bottom: 25px;
     padding: 0;
     text-align: center;
     background-color: #555956;
@@ -155,7 +156,9 @@ button {
 /* FOOTER */
 #footer {
     margin: 0;
-    padding: 20px 0px;
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 5px;
     text-align: center;
     background-color: #1f2937;
 }
@@ -165,7 +168,7 @@ button {
     justify-content: center;
     align-items: center;
     gap: 50px;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
 }
 
 .github {
@@ -177,9 +180,6 @@ button {
 .github:hover {
     transform: rotate(360deg) scale(1.3);
     box-shadow: 0px 0px 10px 5px #fac650;
-                /* 1px 2px 4px 0px #fac650,
-                2px 4px 8px 0px #fac650,
-                2px 4px 16px 0px #fac650; */
 }
 
 /* MEDIA QUERIES */
@@ -188,6 +188,18 @@ button {
     width: 100%;
     font-size: small;
     margin: 0;
+}
+
+.choices-container {
+    gap: 50px;
+}
+
+#player-score {
+    margin-top: 20px;
+}
+
+#computer-score {
+    margin-top: 0.5px;
 }
 
 img {
