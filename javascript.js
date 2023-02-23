@@ -49,13 +49,11 @@ function gameRound(playerSelection) {
 function game() {
     let result;
     if (playerScore === 5) {
-        result = confirm("You WON!");
-            if (result) location.reload();
-            else location.reload();
+        result = alert("You WON!");
+        location.reload();
     } else if (computerScore === 5) {
-        result = confirm("You LOST!");
-            if (result) location.reload();
-            else location.reload();
+        result = alert("You LOST!");
+        location.reload();
     }
 }
 
