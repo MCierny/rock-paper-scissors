@@ -18,8 +18,17 @@
 }
 
 /* GENERAL SETTINGS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 html, body {
     height: 100%;
+    width: 100%;
 }
 
 body {
@@ -126,12 +135,11 @@ button {
 }
 
 .button:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.2);
     box-shadow: 0px 1px 2px 0px #fac650,
                 1px 2px 4px 0px #fac650,
                 2px 4px 8px 0px #fac650,
                 2px 4px 16px 0px #fac650;
-    /* transform: scale(1.2); */
 }
 
 .show-choice {
@@ -147,6 +155,45 @@ button {
 /* FOOTER */
 #footer {
     margin: 0;
+    padding: 20px 0px;
     text-align: center;
     background-color: #1f2937;
+}
+
+.mcierny {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 25px;
+}
+
+.github {
+    width: 25px;
+    transition: transform 0.4s ease-in-out;
+    border-radius: 50%;
+}
+
+.github:hover {
+    transform: rotate(360deg) scale(1.2);
+    box-shadow: 0px 0px 10px 2px #fac650;
+                /* 1px 2px 4px 0px #fac650,
+                2px 4px 8px 0px #fac650,
+                2px 4px 16px 0px #fac650; */
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 620px) {
+* {
+    width: 100%;
+    font-size: small;
+    margin: 0;
+}
+
+img {
+    width: 50%;
+}
+
+#footer > p, a {
+    font-size: 10px;
+}
 }
