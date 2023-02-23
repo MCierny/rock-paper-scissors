@@ -1,0 +1,130 @@
+/* FONTS */
+@font-face {
+    font-family: "Pixel";
+    src: url('fonts/04B_30__.TTF');
+    src: url('fonts/04B_30__.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: "Alagard";
+    src: url('fonts/alagard.ttf');
+    src: url('fonts/alagard.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Start";
+    src: url('fonts/prstartk.ttf');
+    src: url('fonts/prstartk.ttf') format('truetype');
+}
+
+/* MAIN */
+html, body {
+    height: 100%;
+}
+
+body {
+  margin: 0;
+  color: #fac650;
+  background-color: #555956;
+  line-height: 1.5;
+  font-family: Start, "PT Sans", Calibri, Tahoma, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h1, h2, div, p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fac650;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border-radius: 16px;
+    border: none;
+    background-color: #555956;
+}
+
+/* BODY CONTENT */
+#header {
+    font-family: Pixel, "PT Sans", Calibri, Tahoma, sans-serif;
+    margin: 0;
+    text-align: center;
+    background-color: #1f2937;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#content {
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    background-color: #555956;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#score-message {
+    margin: 0;
+    text-align: center;
+}
+
+.choices-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin-top: 100px;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 50px;
+    width: 240px;
+}
+
+#player-score, #computer-score {
+    margin-top: 50px;
+}
+
+#buttons-container {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #555956;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.button {
+    margin: 0;
+    padding: 0;
+    max-width: 110px;
+    max-height: 110px;
+    background-color: #555956;
+    border-radius: 16px;
+}
+
+
+/* FOOTER */
+#footer {
+    margin: 0;
+    text-align: center;
+    background-color: #1f2937;
+}

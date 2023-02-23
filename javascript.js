@@ -4,117 +4,127 @@ function getComputerChoice() {
         return "Rock";
     } else if (compChoice === 1) {
         return "Paper";
-    }
-    else {
+    } else {
         return "Scissors";
     }
-
 }
 
-
-/* Create a single round of Roock, Paper, Scissors */
-/* 
-Create a variable playerSelection
-Create a variable computerSelection
-Request player input and store it in variable playerSelection
-Computer input is random
-
-if player == rock and computer == rock, print "its a TIE"
-else if player == rock and computer == scissors, print "You WIN"
-else if player == rock and computer == paper, print "You LOOSE"
-else if player == scissors and computer == rock, print "You LOOSE"
-else if player == scissors and computer == scissors, print "its a TIE"
-else if player == scissors and computer == paper, print "you WIN"
-else if player == paper and computer == rock, print "you WIN"
-else if player == paper and computer == scissors, print "you LOOSE"
-else if player == paper and computer == paper, print "its a TIE"
-else print "Wrong input, you probably made a spelling mistake"
-*/
-
-
-let playerSelection = "";  //prompt("What is your choice? (Rock, Paper or Scissors)")?.toLowerCase();
-
-
-function gameRound() {
+// let playerSelection = "";  //prompt("What is your choice? (Rock, Paper or Scissors)")?.toLowerCase();
+function gameRound(playerSelection) {
     let computerSelection = getComputerChoice();
     if (playerSelection === computerSelection) {
-        document.getElementById('score-message').textContent = `Its a TIE! ${playerSelection} vs ${computerSelection} !`;
-        console.log(`Its a TIE! ${playerSelection} vs ${computerSelection} !`);
+        messageUi.textContent = 'Its a TIE!';
+        scoreMessageUi.textContent = `${playerSelection} ties with ${computerSelection} !`;
+        console.log(`Its a TIE! ${playerSelection} ties with ${computerSelection} !`);
     }   else if (playerSelection === "Rock" && computerSelection === "Scissors") {
             playerScore = ++playerScore;
-            document.getElementById('score-message').textContent = `You WIN! ${playerSelection} beats ${computerSelection} !`;
+            messageUi.textContent = 'You WIN!';
+            scoreMessageUi.textContent = `${playerSelection} beats ${computerSelection} !`;
             console.log(`You WIN! ${playerSelection} beats ${computerSelection} !`);
     }   else if (playerSelection === "Rock" && computerSelection === "Paper") {
             computerScore = ++computerScore;
-            document.getElementById('score-message').textContent = `You LOOSE! ${computerSelection} beats ${playerSelection} !`;
+            messageUi.textContent = 'You LOOSE!';
+            scoreMessageUi.textContent = `${computerSelection} beats ${playerSelection} !`;
             console.log(`You LOOSE! ${computerSelection} beats ${playerSelection} !`);
     }   else if (playerSelection === "Scissors" && computerSelection === "Rock") {
             computerScore = ++computerScore;  
-            document.getElementById('score-message').textContent = `You LOOSE! ${computerSelection} beats ${playerSelection} !`;
+            messageUi.textContent = 'You LOOSE!';
+            scoreMessageUi.textContent = `${computerSelection} beats ${playerSelection} !`;
             console.log(`You LOOSE! ${computerSelection} beats ${playerSelection} !`);
     }   else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-            playerScore = ++playerScore;  
-            document.getElementById('score-message').textContent = `You WIN! ${playerSelection} beats ${computerSelection} !`;
+            playerScore = ++playerScore;
+            messageUi.textContent = 'You WIN!';
+            scoreMessageUi.textContent = `${playerSelection} beats ${computerSelection} !`;
             console.log(`You WIN! ${playerSelection} beats ${computerSelection} !`);
     }   else if (playerSelection === "Paper" && computerSelection === "Rock") {
-            playerScore = ++playerScore;   
-            document.getElementById('score-message').textContent = `You WIN! ${playerSelection} beats ${computerSelection} !`;
+            playerScore = ++playerScore;
+            messageUi.textContent = 'You WIN!'; 
+            scoreMessageUi.textContent = `${playerSelection} beats ${computerSelection} !`;
             console.log(`You WIN! ${playerSelection} beats ${computerSelection} !`);
     }   else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-            computerScore = ++computerScore; 
-            document.getElementById('score-message').textContent = `You LOOSE! ${computerSelection} beats ${playerSelection} !`;
+            computerScore = ++computerScore;
+            messageUi.textContent = 'You LOOSE!'; 
+            scoreMessageUi.textContent = `${computerSelection} beats ${playerSelection} !`;
             console.log(`You LOOSE! ${computerSelection} beats ${playerSelection} !`);
     }  
-    document.getElementById('player-score').textContent = `You: ${playerScore}`;
-    document.getElementById('computer-score').textContent = `Computer: ${computerScore}`; 
-    document.getElementById('player-choice').textContent = `Your choice: ${playerSelection}`;
-    document.getElementById('computer-choice').textContent = `Computer choice: ${computerSelection}`;
+    playerScoreUi.textContent = `You: ${playerScore}`;
+    computerScoreUi.textContent = `Computer: ${computerScore}`; 
+    updateChoices(playerSelection, computerSelection);
+    game();
 }
 
+function game() {
+    let result;
+    if (playerScore === 5) {
+        result = confirm("You WON!");
+            if (result) location.reload();
+            else location.reload();
+        console.log("You WON the GAME!");
+    } else if (computerScore === 5) {
+        result = confirm("You LOST!");
+            if (result) location.reload();
+            else location.reload();
+        console.log("You LOST the GAME!");
+    }
+}
 
+function updateChoices(playerSelection, computerSelection) {
+    switch (playerSelection) {
+      case 'Rock':
+        playerChoiceUi.innerHTML = '<img src="imgs/rock.png" alt="rock hand gesture" class="button"></img>';
+        break
+      case 'Paper':
+        playerChoiceUi.innerHTML = '<img src="imgs/paper.png" alt="rock hand gesture" class="button"></img>';
+        break
+      case 'Scissors':
+        playerChoiceUi.innerHTML = '<img src="imgs/scissors.png" alt="rock hand gesture" class="button"></img>';
+        break
+    }
+  
+    switch (computerSelection) {
+      case 'Rock':
+        computerChoiceUi.innerHTML = '<img src="imgs/rock.png" alt="rock hand gesture" class="button"></img>';
+        break
+      case 'Paper':
+        computerChoiceUi.innerHTML = '<img src="imgs/paper.png" alt="rock hand gesture" class="button"></img>';
+        break
+      case 'Scissors':
+        computerChoiceUi.innerHTML = '<img src="imgs/scissors.png" alt="rock hand gesture" class="button"></img>';
+        break
+    }
+  }
 
-/* Crate a function that will play 5 rounds and keps score, and reports winner oor loser at the end */
-
-/* 
-Create variable playerScore
-Create variable computerScore
-Create for loop with function gameRound()
-if player wins round +1 score
-if computer wins round +1 score
-if player score = 3 first = Player WINS
-if computer score = 3 first = Computer WINS
-*/
+const playerScoreUi =  document.getElementById('player-score');
+const computerScoreUi = document.getElementById('computer-score');
+const playerChoiceUi = document.getElementById('player-choice');
+const computerChoiceUi = document.getElementById('computer-choice');
+const scoreMessageUi = document.getElementById('score-message');
+const messageUi = document.getElementById('message');
+const btnRock = document.getElementById('rock');
+const btnPaper = document.getElementById('paper');
+const btnScissors = document.getElementById('scissors');
 
 let playerScore = 0;
 let computerScore = 0;
 
-
-// function game() {
-//     for (let i = 0; i < 5; i++) {
-//         console.log(gameRound());
-//         console.log("Your score: ", playerScore);
-//         console.log("Opponent score: ", computerScore);
-//     }  
-//     if (playerScore > computerScore) {
-//         alert("You WON!");
-//         console.log("You WON the GAME!");
-//     } else if (playerScore < computerScore) {
-//         alert("You LOST!");
-//         console.log("You LOST the GAME!");
-//     } else if (playerScore === computerScore) {
-//         alert("Its a TIE!")
-//         console.log("Its a TIE!");
-//     }
-// }
-
-// game();
-
-const buttons = document.querySelectorAll('button');
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        playerSelection = button.textContent;
-        gameRound(); 
-    }) 
+btnRock.addEventListener('click', () => {
+    gameRound('Rock');
 });
+btnPaper.addEventListener('click', () => {
+    gameRound('Paper');
+});
+btnScissors.addEventListener('click', () => {
+    gameRound('Scissors');
+});
+
+
+
+// const buttons = document.querySelectorAll('button');
+// buttons.forEach(button => {
+//     button.addEventListener('click', () => {
+//         playerSelection = button.textContent;
+//         gameRound(); 
+//     }) 
+// });
 
 
