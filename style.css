@@ -163,6 +163,7 @@ button {
 .mcierny {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 50px;
     margin-bottom: 25px;
 }
@@ -196,4 +197,14 @@ img {
 #footer > p, a {
     font-size: 10px;
 }
+
+.mcierny {
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.mcierny > a {
+    max-width: 10%;
+}
+
 }
